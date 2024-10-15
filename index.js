@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { Movie, TVShow } = require("./models");
 
+const port = 3000;
 mongoose.connect(
   "mongodb+srv://Harman:Harman9696@cluster0.f3qys.mongodb.net/Harman?retryWrites=true&w=majority&appName=Cluster0",
   {
@@ -13,9 +14,9 @@ mongoose.connect(
 const app = express();
 app.use(express.json());
 
-app.use("/",(req,res) =>{
-  res.json({message: "Hello"})
-})
+app.listen(port,()=>{
+  console.log("Hello");
+});
 
 // Create a new movie
 app.post("/movies", (req, res) => {
