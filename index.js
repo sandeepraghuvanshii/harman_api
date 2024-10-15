@@ -13,6 +13,10 @@ mongoose.connect(
 const app = express();
 app.use(express.json());
 
+app.use("/",(req,res) =>{
+  res.json({message: "Hello"})
+})
+
 // Create a new movie
 app.post("/movies", (req, res) => {
   const movieData = req.body;
