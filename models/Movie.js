@@ -151,11 +151,11 @@ const movieSchema = new mongoose.Schema({
   play_links: [
     {
       qualtiy_low: {
-        type: Object,
+        type: String,
         required: false,
       },
       qualtiy_medium: {
-        type: Object,
+        type: String,
         required: false,
       },
     },
