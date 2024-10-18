@@ -148,8 +148,7 @@ const movieSchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
-  play_links: [
-    {
+  play_links: {
       qualtiy_low: {
         type: String,
         required: false,
@@ -159,7 +158,6 @@ const movieSchema = new mongoose.Schema({
         required: false,
       },
     },
-  ],
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
