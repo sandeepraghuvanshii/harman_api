@@ -155,7 +155,7 @@ const movieSchema = new mongoose.Schema({
  qualtiy_medium: {
         type: String,
         required: false,
-      },
+      }
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
