@@ -49,16 +49,6 @@ app.get("/movies", (req, res) => {
       res.status(500).send(err);
     });
 });
-// Update a movie
-app.put("/movies/:id", (req, res) => {
-  Movie.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then((movie) => {
-      res.send(movie);
-    })
-    .catch((err) => {
-      res.status(500).send(err);
-    });
-});
 
 // Delete a movie
 app.delete("/movies/:movieId", async (req, res) => {
