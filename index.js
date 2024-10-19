@@ -50,7 +50,7 @@ app.get("/movies", (req, res) => {
     });
 });
 //find by id
-app.delete("/movies/:movieId", async (req, res) => {
+app.get("/movies/:movieId", async (req, res) => {
   const movieId = req.params.movieId;
 
   try {
