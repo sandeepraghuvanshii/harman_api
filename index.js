@@ -17,7 +17,28 @@ app.use(express.json());
 app.listen(port,()=>{
   console.log("Hello");
 });
+//Update Video Links
+app.put('/movies/:id/add-quality', async (req, res) => {
+  const movieId = req.params.id; // Get the ID from the URL
+  const qualityData = req.body; // Get the quality data from the request body
 
+  try {
+    // Update the movie document with the new quality fields
+    const result = await Movie.updateOne(
+      { _id: movieId }, // Filter to find the document by ID
+      { $set: qualityData } // Update the fields with the new quality data
+    );
+
+    if (result.nModified > 0) {
+      res.status(200).send('Quality fields added successfully');
+    } else {
+      res.status(404).send('Movie not found or no changes made');
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error updating movie');
+  }
+});
 // Create a new movie
 app.post("/movies", (req, res) => {
   const movieData = req.body;
