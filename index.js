@@ -49,6 +49,21 @@ app.get("/movies", (req, res) => {
       res.status(500).send(err);
     });
 });
+//find by id
+app.delete("/movies/:movieId", async (req, res) => {
+  const movieId = req.params.movieId;
+
+  try {
+    const movie = await Movie.findById(movieId);
+    if (!movie) {
+      res.status(404).send({ message: "Movie not found" });
+      return;
+    }
+    res.send(movie);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 
 // Delete a movie
 app.delete("/movies/:movieId", async (req, res) => {
