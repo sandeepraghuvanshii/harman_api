@@ -49,22 +49,6 @@ app.get("/movies", (req, res) => {
       res.status(500).send(err);
     });
 });
-
-// Get a single movie by ID
-app.get("/movies/:id", (req, res) => {
-  Movie.findById(req.params.id)
-    .then((movie) => {
-      if (!movie) {
-        res.status(404).send("Movie not found");
-      } else {
-        res.send(movie);
-      }
-    })
-    .catch((err) => {
-      res.status(500).send(err);
-    });
-});
-
 // Update a movie
 app.put("/movies/:id", (req, res) => {
   Movie.findByIdAndUpdate(req.params.id, req.body, { new: true })
@@ -90,19 +74,6 @@ app.delete("/movies/:movieId", async (req, res) => {
     res.status(200).send({ message: "Movie deleted successfully" });
   } catch (err) {
     res.status(500).send(err);
-  }
-});
-
-// Route to search movies by title
-app.get('/movie/search', async (req, res) => {
-  const title = req.query.title;
-
-  try {
-    const movies = await Movie.find({ $text: { $search: title } });
-    res.status(200).json(movies);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error searching movies');
   }
 });
 
