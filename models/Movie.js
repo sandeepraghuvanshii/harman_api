@@ -1,48 +1,6 @@
 // models/Movie.js
 const mongoose = require("mongoose");
 
-const qualitySchema = new mongoose.Schema({
-  quality_low_english: {
-    type: String,
-    required: false,
-  },
-  quality_medium_english: {
-    type: String,
-    required: false,
-  },
-  quality_low_hindi: {
-    type: String,
-    required: false,
-  },
-  quality_medium_hindi: {
-    type: String,
-    required: false,
-  },
-  quality_low_kannada: {
-    type: String,
-    required: false,
-  },
-  quality_medium_kannada: {
-    type: String,
-    required: false,
-  },
-  quality_low_malayalam: {
-    type: String,
-    required: false,
-  },
-  quality_medium_malayalam: {
-    type: String,
-    required: false,
-  },
-  quality_low_tamil: {
-    type: String,
-    required: false,
-  },
-  quality_medium_tamil: {
-    type: String,
-    required: false,
-  },
-});
 const movieSchema = new mongoose.Schema({
   adult: {
     type: Boolean,
@@ -190,7 +148,46 @@ const movieSchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
-  quality: qualitySchema,
+   quality_low_english: {
+    type: String,
+    required: false,
+  },
+  quality_medium_english: {
+    type: String,
+    required: false,
+  },
+  quality_low_hindi: {
+    type: String,
+    required: false,
+  },
+  quality_medium_hindi: {
+    type: String,
+    required: false,
+  },
+  quality_low_kannada: {
+    type: String,
+    required: false,
+  },
+  quality_medium_kannada: {
+    type: String,
+    required: false,
+  },
+  quality_low_malayalam: {
+    type: String,
+    required: false,
+  },
+  quality_medium_malayalam: {
+    type: String,
+    required: false,
+  },
+  quality_low_tamil: {
+    type: String,
+    required: false,
+  },
+  quality_medium_tamil: {
+    type: String,
+    required: false,
+  },
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
