@@ -148,11 +148,43 @@ const movieSchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
- quality_low: {
+ quality_low_english: {
         type: String,
         required: false,
       },
- quality_medium: {
+ quality_medium_english: {
+        type: String,
+        required: false,
+      },
+  quality_low_hindi: {
+        type: String,
+        required: false,
+      },
+ quality_medium_hindi: {
+        type: String,
+        required: false,
+      },
+   quality_low_kannada: {
+        type: String,
+        required: false,
+      },
+ quality_medium_kannada: {
+        type: String,
+        required: false,
+      },
+  quality_low_malayalam: {
+        type: String,
+        required: false,
+      },
+ quality_medium_malayalam: {
+        type: String,
+        required: false,
+      },
+  quality_low_tamil: {
+        type: String,
+        required: false,
+      },
+ quality_medium_tamil: {
         type: String,
         required: false,
       }
