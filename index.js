@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser');
 const { Movie, TVShow } = require("./models");
 
 const port = 3000;
@@ -14,7 +13,6 @@ mongoose.connect(
 
 const app = express();
 app.use(express.json());
-app.use(bodyParser.json());
 
 app.listen(port,()=>{
   console.log("Hello");
