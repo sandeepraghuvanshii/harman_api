@@ -148,11 +148,11 @@ const movieSchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
- qualtiy_low: {
+ quality_low: {
         type: String,
         required: false,
       },
- qualtiy_medium: {
+ quality_medium: {
         type: String,
         required: false,
       }
