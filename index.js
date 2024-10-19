@@ -49,7 +49,7 @@ app.get("/movies", (req, res) => {
       res.status(500).send(err);
     });
 });
-//find by id
+// Find by id
 app.get("/movies/:movieId", async (req, res) => {
   const movieId = req.params.movieId;
 
@@ -62,6 +62,23 @@ app.get("/movies/:movieId", async (req, res) => {
     res.send(movie);
   } catch (err) {
     res.status(500).send(err);
+  }
+});
+// Update a Movie
+app.put('/movies/:movieId', async (req, res) => {
+  const movieId = req.params.movieId;
+  const updateData = req.body;
+
+  try {
+    const movie = await Movie.findByIdAndUpdate(movieId, updateData, { new: true });
+    if (movie) {
+      res.status(200).send('Movie updated successfully');
+    } else {
+      res.status(404).send('Movie not found');
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error updating movie');
   }
 });
 
