@@ -153,7 +153,7 @@ const movieSchema = new mongoose.Schema({
     },
     id: {
         type: Number,
-        required: true,
+        required: false,
     },
     known_for_department: {
         type: String,
@@ -161,11 +161,11 @@ const movieSchema = new mongoose.Schema({
     },
     name: {
         type: String,
-        required: true,
+        required: false,
     },
     original_name: {
         type: String,
-        required: true,
+        required: false,
     },
     popularity: {
         type: Number,
@@ -177,15 +177,15 @@ const movieSchema = new mongoose.Schema({
     },
     cast_id: {
         type: Number,
-        required: true,
+        required: false,
     },
     character: {
         type: String,
-        required: true,
+        required: false,
     },
     credit_id: {
         type: String,
-        required: true,
+        required: false,
     },
     order: {
         type: Number,
