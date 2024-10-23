@@ -2,7 +2,6 @@
 const mongoose = require("mongoose");
 
 const movieSchema = new mongoose.Schema({
-   _id: false,
   adult: {
     type: Boolean,
     required: false,
@@ -50,9 +49,7 @@ const movieSchema = new mongoose.Schema({
   },
   id: {
     type: String,
-    required: true,
-    unique: true,
-     _id: true,
+    required: false,
   },
   imdb_id: {
     type: String,
