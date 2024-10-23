@@ -141,58 +141,6 @@ const movieSchema = new mongoose.Schema({
       },
     },
   ],
-  cast:[
-    {
-      adult: {
-        type: Boolean,
-        required: false,
-    },
-    gender: {
-        type: Number,
-        required: false,
-    },
-    id: {
-        type: Number,
-        required: false,
-    },
-    known_for_department: {
-        type: String,
-        required: false,
-    },
-    name: {
-        type: String,
-        required: false,
-    },
-    original_name: {
-        type: String,
-        required: false,
-    },
-    popularity: {
-        type: Number,
-        required: false,
-    },
-    profile_path: {
-        type: String,
-        required: false,
-    },
-    cast_id: {
-        type: Number,
-        required: false,
-    },
-    character: {
-        type: String,
-        required: false,
-    },
-    credit_id: {
-        type: String,
-        required: false,
-    },
-    order: {
-        type: Number,
-        required: false,
-    },
-   },
-  ],
   status: {
     type: String,
     required: false,
