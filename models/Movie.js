@@ -48,7 +48,7 @@ const movieSchema = new mongoose.Schema({
   homepage: {
     type: String,
   },
-  id: {
+  _id: {
     type: Number,
     required: false,
     unique: true,
