@@ -13,7 +13,6 @@ const movieSchema = new mongoose.Schema({
    id:{
      type: Number,
      required: false,
-     unique: true
    },
    name: {
      type: String,
