@@ -10,7 +10,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
   },
  belongs_to_collection: [{
-   _id:{
+   id:{
      type: Number,
      required: false,
      unique: true
@@ -48,7 +48,7 @@ const movieSchema = new mongoose.Schema({
   homepage: {
     type: String,
   },
-  id: {
+  _id: {
     type: Number,
     required: false,
     unique: true,
