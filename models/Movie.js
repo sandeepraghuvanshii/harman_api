@@ -9,10 +9,25 @@ const movieSchema = new mongoose.Schema({
   backdrop_path: {
     type: String,
   },
- belongs_to_collection: {
-        type: String, 
-        required: false,
-    },
+ belongs_to_collection: [{
+   id:{
+     type: number,
+     required: false,
+   },
+   name: {
+     type: String,
+     required: false,
+   },
+   poster_path:{
+     type: String,
+     required: false,
+   },
+   backdrop_path:{
+     type: String,
+     required: false,
+     },
+   },
+  ],
   budget: {
     type: Number,
     required: false,
