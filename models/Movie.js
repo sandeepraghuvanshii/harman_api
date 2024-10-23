@@ -49,9 +49,10 @@ const movieSchema = new mongoose.Schema({
     type: String,
   },
   id: {
-    type: Number,
-    required: false,
+    type: String,
+    required: true,
     unique: true,
+    index: true,
   },
   imdb_id: {
     type: String,
