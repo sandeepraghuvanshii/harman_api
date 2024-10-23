@@ -11,7 +11,7 @@ const movieSchema = new mongoose.Schema({
   },
  belongs_to_collection: [{
    id:{
-     type: number,
+     type: Number,
      required: false,
    },
    name: {
