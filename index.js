@@ -19,9 +19,17 @@ app.listen(port,()=>{
 });
 // Create a new movie
 app.post("/movies", async (req, res) => {
-  const { id, ...otherFields } = req.body;
-  const movie = new Movie({ _id: id.toString(), ...otherFields });
-  
+  let { id, ...otherFields } = req.body;
+
+  // Ensure ID is provided and converted to string
+  if (!id) {
+    return res.status(400).json({ message: "ID is required" });
+  }
+
+  id = id.toString();
+
+  const movie = new Movie({ _id: id, ...otherFields });
+
   try {
     const newMovie = await movie.save();
     res.status(201).json(newMovie);
@@ -29,6 +37,7 @@ app.post("/movies", async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
 
 
 // Get all movies
