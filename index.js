@@ -18,26 +18,18 @@ app.listen(port,()=>{
   console.log("Hello");
 });
 // Create a new movie
-app.post("/movies", (req, res) => {
-  const movieData = req.body;
-  const movie = new Movie(movieData);
-
-  // Ensure belongs_to_collection is an ObjectId
-  if (movieData.belongs_to_collection && movieData.belongs_to_collection.id) {
-    movie.belongs_to_collection = new mongoose.Types.ObjectId(
-      movieData.belongs_to_collection.id
-    );
+app.post("/movies", async (req, res) => {
+  const { id, ...otherFields } = req.body;
+  const movie = new Movie({ _id: id, ...otherFields });
+  
+  try {
+    const newMovie = await movie.save();
+    res.status(201).json(newMovie);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
   }
-
-  movie
-    .save()
-    .then(() => {
-      res.send("Movie created successfully");
-    })
-    .catch((err) => {
-      res.status(500).send(err);
-    });
 });
+
 
 // Get all movies
 app.get("/movies", (req, res) => {
