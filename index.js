@@ -21,22 +21,23 @@ app.listen(port,()=>{
 app.post("/movies", async (req, res) => {
   let { id, ...otherFields } = req.body;
 
-  // Ensure ID is provided and converted to string
   if (!id) {
     return res.status(400).json({ message: "ID is required" });
   }
 
-  id = id.toString();
-
-  const movie = new Movie({ _id: id, ...otherFields });
+  const movie = new Movie({ custom_id: id.toString(), ...otherFields });
 
   try {
     const newMovie = await movie.save();
     res.status(201).json(newMovie);
   } catch (error) {
+    if (error.code === 11000) {
+      return res.status(400).json({ message: "Movie with this custom ID already exists" });
+    }
     res.status(400).json({ message: error.message });
   }
 });
+
 
 
 
