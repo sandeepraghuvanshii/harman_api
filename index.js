@@ -19,16 +19,22 @@ app.listen(port,()=>{
 });
 // Create a new movie
 app.post("/movies", async (req, res) => {
-  const { id, ...otherFields } = req.body;
-  const movie = new Movie({ _id: id, ...otherFields });
-  
+  const { id, belongs_to_collection, ...otherFields } = req.body;
+
+  // Convert IDs to string
+  const updatedBelongsToCollection = belongs_to_collection.map(collection => ({
+    ...collection,
+    id: collection.id ? collection.id.toString() : null,
+  }));
+
+  const movie = new Movie({ _id: id.toString(), belongs_to_collection: updatedBelongsToCollection, ...otherFields });
+
   try {
     const newMovie = await movie.save();
     res.status(201).json(newMovie);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
-});
 
 
 // Get all movies
