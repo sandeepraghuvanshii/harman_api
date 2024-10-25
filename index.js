@@ -20,7 +20,7 @@ app.listen(port,()=>{
 // Create a new movie
 app.post("/movies", async (req, res) => {
   const { id, ...otherFields } = req.body;
-  const movie = new Movie({ _id: id.toString(), ...otherFields });
+  const movie = new Movie({ _id: id, ...otherFields });
   
   try {
     const newMovie = await movie.save();
