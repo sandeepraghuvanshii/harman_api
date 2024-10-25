@@ -47,9 +47,10 @@ const movieSchema = new mongoose.Schema({
   homepage: {
     type: String,
   },
-  _id: {
+  id: {
     type: String,
     required: true,
+    unique: true,
   },
   imdb_id: {
     type: String,
